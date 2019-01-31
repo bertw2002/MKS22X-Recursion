@@ -1,4 +1,9 @@
+import java.util.ArrayList;
 public class recursion{
+  private ArrayList<Integer> arraySums;
+  public ArrayList<Integer> getarraySums(){
+    return arraySums;
+  }
   /*Recursively find the sqrt using Newton's approximation
   *tolerance is the allowed percent error the squared answer is away from n.
   *precondition: n is non-negative*/
@@ -7,12 +12,12 @@ public class recursion{
     return SquareRoot(x, x / 2, tolerance);
   }
   //private helper for sqrt.
-  private static double percentError(double n, double guess){
+  public static double percentError(double n, double guess){
     //percent error formula.
     return ((guess * guess - n) / n) * 100;
   }
-  private static double SquareRoot(double n, double guess, double tolerance){
-    if (Math.abs(percentError(n, guess)) <= tolerance){
+  public static double SquareRoot(double n, double guess, double tolerance){
+    if (percentError(n, guess) <= tolerance && percentError(n, guess) >= -1 * tolerance){
       return guess;
     }
     else{
@@ -35,6 +40,13 @@ public class recursion{
     else{
       return fib(n - 1) + fib(n - 2);
     }
+  }
+  /*As Per classwork*/
+  public static ArrayList<Integer> makeAllSums(int n){
+    return allSumsHelper(n, 0);
+  }
+  public static ArrayList<Integer> allSumsHelper(int total, int sum){
+
   }
 
 }
