@@ -36,21 +36,20 @@ public class Recursion{
     }if (n == 1){
       return 1;
     }
-    //recursive.
+    //recursive, adds previous 2 numbers.
     else{
       return fib(n - 1) + fib(n - 2);
     }
   }
 
   /*As Per classwork*/
-
   public static ArrayList<Integer> makeAllSums(int n){
     ArrayList<Integer> arrList = new ArrayList<Integer>();
     return allSumsHelper(n, 0,  arrList);
   }
 
   public static ArrayList<Integer> allSumsHelper(int total, int sum, ArrayList<Integer> arrList){
-    //base case.
+    //base case when total reaches lowest so the method can add the sum.
     if (total == 0){
       arrList.add(sum);
       return arrList;
@@ -59,6 +58,7 @@ public class Recursion{
       //recursion that make sum the same, or adds total to sum to get all possible combinations.
       allSumsHelper(total - 1, total + sum, arrList);
       allSumsHelper(total - 1, sum, arrList);
+      //changes the arrays, then returns it. 
       return arrList;
     }
   }
@@ -67,7 +67,7 @@ public class Recursion{
      System.out.println(makeAllSums(0));
      System.out.println(makeAllSums(6));
      System.out.println(makeAllSums(3));
-
+     System.out.println(makeAllSums(2));
    }
 
 }
