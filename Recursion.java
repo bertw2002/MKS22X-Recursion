@@ -41,27 +41,28 @@ public class Recursion{
       return fib(n - 1) + fib(n - 2);
     }
   }
+
   /*As Per classwork*/
+
   public static ArrayList<Integer> makeAllSums(int n){
     ArrayList<Integer> arrList = new ArrayList<Integer>();
-    arrList.add(0);
-    return allSumsHelper(n, arrList);
+    return allSumsHelper(n, 0,  arrList);
   }
 
-  public static ArrayList<Integer> allSumsHelper(int total, ArrayList<Integer> arrList){
+  public static ArrayList<Integer> allSumsHelper(int total, int sum, ArrayList<Integer> arrList){
     //base case.
-    if (total == 0) return arrList;
+    if (total == 0){
+      arrList.add(sum);
+      return arrList;
+   }
     else{
-      allSumsHelper(total - 1, arrList);
-      int lenlist = arrList.size();
-      for (int x = 0; x < lenlist; x++){
-        if (!(arrList.contains(arrList.get(x) + total))){
-          arrList.add(arrList.get(x) + total);
-        }
-      }
+      //recursion that make sum the same, or adds total to sum to get all possible combinations.
+      allSumsHelper(total - 1, total + sum, arrList);
+      allSumsHelper(total - 1, sum, arrList);
+      return arrList;
     }
-    return arrList;
   }
+  //test out makeallsums.
   public static void main(String[] args) {
      System.out.println(makeAllSums(0));
      System.out.println(makeAllSums(6));
