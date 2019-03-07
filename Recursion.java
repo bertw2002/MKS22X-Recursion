@@ -1,5 +1,5 @@
 import java.util.ArrayList;
-public class Recursion{
+public class recursion{
   private ArrayList<Integer> arraySums;
   public ArrayList<Integer> getarraySums(){
     return arraySums;
@@ -58,7 +58,7 @@ public class Recursion{
       //recursion that make sum the same, or adds total to sum to get all possible combinations.
       allSumsHelper(total - 1, total + sum, arrList);
       allSumsHelper(total - 1, sum, arrList);
-      //changes the arrays, then returns it. 
+      //changes the arrays, then returns it.
       return arrList;
     }
   }
